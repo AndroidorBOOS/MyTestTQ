@@ -1,0 +1,39 @@
+#include<stdio.h>  基本命令
+#include<stdlib.h> 内存管理
+#include<windows.h>  DOS命令
+#include<time.h>  时间、、随机数
+#include<string.h> 字符串处理
+#include<math.h>  数学
+#include<mmsystem.h>  
+#include<ctype.h>  大小写转化
+#include<conio.h>  gesch//隐形输出  kbhit()//判断当前是否键盘有输入值，无->0,有->非0.
+  72    ↑
+  80    ↓
+  75  ←
+  77  →
+continuet    跳出当前循环
+#ifndef __HARDWARE_H__
+#define __HARDWARE_H__
+
+
+
+#endif
+使用时候
+#include"头文件名字.h"
+void gotoxy(int x,int y)//光标跳转位置。
+{
+	COORD coord;
+	coord.X=x;
+	coord.Y=y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
+}
+
+//隐藏光标
+void HideCursor()
+{
+	CONSOLE_CURSOR_INFO curInfo; //定义光标信息的结构体变量
+	curInfo.dwSize = 1; //如果没赋值的话，光标隐藏无效
+	curInfo.bVisible = FALSE; //将光标设置为不可见
+	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE); //获取控制台句柄
+	SetConsoleCursorInfo(handle, &curInfo); //设置光标信息
+}
